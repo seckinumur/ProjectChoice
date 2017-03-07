@@ -2,5 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Merhaba Dünya!</h1>
+    <h1 style="color:blue">Merhaba Dünya!</h1> <br />
+    <h2>Bu Proje yavuzgedik için main page denemesi için hazırlanmıştır.</h2>
 </asp:Content>

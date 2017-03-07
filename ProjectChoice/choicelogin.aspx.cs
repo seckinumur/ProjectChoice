@@ -10,10 +10,19 @@ namespace ProjectChoice
 {
     public partial class choicelogin : System.Web.UI.Page
     {
-
+        SUDBEntities db = new SUDBEntities();
+        List<ChoiceAdmin> AdminListesi;
         protected void Page_Load(object sender, EventArgs e)
         {
             Durum.Visible = false;
+            try
+            {
+                AdminListesi = db.ChoiceAdmin.ToList();
+            }catch
+            {
+                Durum.Visible = true;
+                Durum.Text = "Veritabanı Hatası! Login Sistemi Çalışmıyor";
+            }
             
         }
 
@@ -21,21 +30,22 @@ namespace ProjectChoice
         {
             try
             {
-                using (SUDBEntities db = new SUDBEntities())
+                var bul = AdminListesi.Where(p => p.KullaniciAdi == txtAd.Text && p.Sifre == TxtSifre.Text).FirstOrDefault();
+                if (bul.Yetki == "admin")
                 {
-                    var sor = db.ChoiceAdmin.Where(p => p.KullaniciAdi == txtAd.Text && p.Sifre == TxtSifre.Text).FirstOrDefault();
-
-                    Response.Redirect("Choice.Master");
-                }  
+                    Response.Redirect("Layot1.aspx");
                 }
+            }
             catch
             {
                 Durum.Visible = true;
                 Durum.Text = "Sisteme Giriş Hatası!";
                 txtAd.Text = "";
                 TxtSifre.Text = "";
-            } 
             }
+
+        }  
+           
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
