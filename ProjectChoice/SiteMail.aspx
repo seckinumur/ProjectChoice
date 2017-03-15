@@ -86,7 +86,7 @@
             <li><a href="#home" class="page-scroll">Giriş</a></li>
             <li><a href="#meet-us" class="page-scroll">Hakkımda</a></li>
             <li><a href="#contact" class="page-scroll">İletişim</a></li>
-            <li><a href="choicelogin.aspx" class="page-scroll">Sisteme Giriş</a></li>
+            <li><a href="Login.aspx" class="page-scroll">Sisteme Giriş</a></li>
         </ul><!--- End Menu -->
     </div> <!--- End Off Canvas Side Menu -->
     <!-- Home Section -->
